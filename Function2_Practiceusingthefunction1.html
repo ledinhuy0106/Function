@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Luyện tập tạo và sử dụng hàm</title>
+</head>
+<body onload="alertMessage('hi'); nhapso()">
+<input type="button" value="Bài 3 Tính tổng" onclick="bai3()">
+<input type="button" value="Bài 4 Hàm alert" onclick="bai4()">
+<input type="button" value="Bài 5 Tìm sao" onclick="bai5()">
+<script>
+  //bài 1
+  function alertMessage(str) {
+    let aler = alert("Bài 1 Xin chào")
+    return aler
+  }
+  //bài 2
+  function hientangso(a) {
+    a++
+    return a
+  }
+  function nhapso() {
+    let so =  hientangso(5)
+    alert("Bài 2 Nhập một số và tăng 1 = " +so)
+  }
+  //bài 3
+  function tinhtong(a,b) {
+    if(a>b){
+      return "Giá trị a > b xin nhập lại"
+    }
+    return a + b
+  }
+  function bai3() {
+    let a = Number(prompt("Nhập số a"))
+    let b = Number(prompt("Nhập số b"))
+    document.write("Tổng của "+a+" + "+b+" = "+tinhtong(a,b))
+  }
+  //bài 4
+  function addNumbers() {
+    let firstNum = 4;
+    let secondNum = 8;
+    let result = firstNum + secondNum;
+    return result;
+  }
+  function bai4(){
+    let result = 0;
+    result = addNumbers();
+    alert(result)
+  }
+  //bài 5
+  function ngoiSao(sao) {
+    let sao1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+    let sao2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+    for (let i=0; i<sao1.length ; i++){
+      if(sao == sao1[i]){
+        return sao2[i]
+      }
+    }
+    return ""
+  }
+  function bai5() {
+    let timsao = prompt("Nhập tên ngôi sao")
+    let sao = ngoiSao(timsao)
+    if(sao == ""){
+      document.write("Không có tên ngôi sao nào")
+    }else {
+      document.write("Tên ngôi sao tương ứng của "+timsao+" là "+sao)
+    }
+  }
+</script>
+</body>
+</html>

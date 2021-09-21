@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luyện tập tạo và sử dụng hàm 02</title>
+</head>
+<body>
+<input type="button" value="Bài 1" onclick="bai1()"> Tính bình phương <br>
+<input type="button" value="Bài 2" onclick="bai2()"> Tính chu vi và diện tích hình tròn <br>
+<input type="button" value="Bài 3" onclick="bai3()"> Tính giai thừa <br>
+<input type="button" value="Bài 4" onclick="bai4()"> Kiểm tra xem ký tự nhập vào có phải là ký tự số không <br>
+<input type="button" value="Bài 5" onclick="bai5()"> Tìm số nguyên nhỏ nhất <br>
+<input type="button" value="Bài 6" onclick="bai6()"> Kiếm tra ký tự nguyên âm <br>
+<input type="button" value="Bài 7" onclick="bai7()"> Đổi chỗ 2 nguyên tố <br>
+<input type="button" value="Bài 8" onclick="bai8()"> Đổi chiều mảng <br>
+<input type="button" value="Bài 9" onclick="bai9()"> Kiểm tra ký tự trong mảng <br>
+
+<script>
+  //Bài 1
+  function binhphuong(so) {
+    let ketqua = so * so
+    return ketqua
+  }
+  function bai1() {
+    let so = Number(prompt("Nhập một số tính bình phương"))
+    let ketqua = binhphuong(so)
+    document.write("Bình phương của "+so+" = "+ketqua)
+  }
+
+
+  //Bài 2
+  function dienTich(r, pi) {
+    let S = r*r*pi
+    return S
+  }
+  function chuVi(r, pi) {
+    let C = 2*r*pi
+    return C
+  }
+
+  function bai2() {
+    const pi = 3.14
+    let r = Number(prompt("Nhập bán kính hình tròn "))
+    let chuvi = chuVi(r,pi)
+    let dientich = dienTich(r,pi)
+    document.write("Chu vi hình tròn là "+chuvi+"<br>")
+    document.write("Diện tích hình tròn là "+dientich)
+  }
+
+  //bài 3
+  function giaiThua(so) {
+    let giai_thua = 1
+    if(so>=1){
+      for (let i=1; i<=so; i++){
+        giai_thua = giai_thua * i
+      }
+    }else if(so == 0 ){
+      giai_thua =  1
+    }else{
+      return "Giai thừa không xác định được"
+    }
+    return giai_thua
+  }
+
+  function bai3() {
+    let so = Number(prompt("Nhập vào một số tính giai thừa"))
+    let gt = giaiThua(so)
+    document.write("Giai thừa của "+so+" = "+gt)
+  }
+
+  //bài 4
+  function kiemTraSoHayChuoi(i) {
+    if(i%2 ==0 || i%2 == 1){
+      return true
+    }
+    return false
+  }
+  function bai4() {
+    let i = prompt("Nhập vào ")
+    let check = kiemTraSoHayChuoi(i)
+    if(check){
+      alert("Đây là số")
+    }else{
+      alert("Đây là chuỗi")
+    }
+  }
+
+  //bài 5
+  function timMin(mang_so) {
+    let backup
+    for (let i=0; i<mang_so.length; i++){
+      backup = mang_so[0]
+      if (mang_so[i]< backup){
+        backup = mang_so[i]
+      }
+    }
+    return backup
+  }
+  function bai5() {
+    let mang_so = []
+    for (let i=0 ; i<3; i++){
+      mang_so.push(Number(prompt("Nhập vào mảng số thư "+i)))
+    }
+    let min = timMin(mang_so)
+    document.write("Mảng số gồm ["+mang_so+"] <br>")
+    document.write("Số nhỏ nhất trong dãy là "+min)
+  }
+
+  //bài 6
+  function bai6() {
+    let kytu = prompt("Nhập vào ký tự kiểm tra")
+    let check = kiemtraKyTuNguyenAm(kytu)
+    if(check == true){
+      alert(kytu+ " Đây là ký tự số nguyên âm")
+    }else{
+      alert(kytu+ " Không phải ký tự nguyên âm")
+    }
+
+  }
+  function kiemtraKyTuNguyenAm(kytu) {
+    if(/[a-zA-Z]/.test(kytu) ){
+      return true
+    }
+    return false
+  }
+
+  //BÀi 7
+  function bai7() {
+    let so_a = prompt("Nhập số thứ nhất")
+    let so_b = prompt("Nhập số thứ hai")
+    let ketqua = doiCho2So(so_a,so_b)
+    document.write("Đổi chỗ 2 số: "+ketqua[0] +" , "+ketqua[1])
+  }
+  function doiCho2So(so_a, so_b) {
+    let mang= [so_b,so_a]
+    return mang
+  }
+
+  //bài 8
+  function bai8() {
+    let mangso = [4,1,6,8,2,7,0]
+    document.write("Mảng số gồm mang["+mangso+"]<br>")
+    let daoMang = daoMangSo(mangso)
+    document.write("Đổi chỗ mảng số mangdoi["+daoMang+"]")
+  }
+  function daoMangSo(mangso) {
+    return mangso.reverse()
+  }
+
+  //bài 9
+  function bai9() {
+    let mang = ['a','b','c','c','d','d','d','e','d','f']
+    let kytu = prompt("Nhập vào 1 ký tự bất kỳ")
+    document.write("Mảng gồm ["+mang+"]<br>")
+    let kiemtra = kiemTraTrongMang(kytu, mang)
+    if (kiemtra >0){
+      document.write("Có "+kiemtra+" ký tự "+kytu+" trong mảng")
+    }else{
+      document.write("Không có dữ liệu trong mảng")
+    }
+  }
+  function kiemTraTrongMang(kytu, mang) {
+    let dem=0
+    for (let i=0; i<mang.length; i++){
+      if (kytu == mang[i]) {
+        dem++
+      }
+    }
+    if(dem>0){
+      return dem
+    }
+    return -1
+  }
+</script>
+</body>
+</html>
