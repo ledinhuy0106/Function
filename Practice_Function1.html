@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo và gọi hàm</title>
+</head>
+<body>
+<input type="button" onclick="answer()" value="Bài tập">
+<script>
+  function PreConfirm(cauhoi) {
+    let traloi = ""
+    if(cauhoi != ""){
+      traloi = "i am fine"
+    }else{
+      traloi = "ok gg"
+    }
+    return traloi
+  }
+  function answer() {
+    let aw = PreConfirm(confirm("hello chào mọi người"))
+    document.write(aw)
+  }
+</script>
+</body>
+</html>

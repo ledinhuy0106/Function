@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+<input type="text" id="nhietdo"> *F
+<input type="button" value="Chuyển đổi" id="chuyen" onclick="bangnhiet()">
+<p id="nhietdoC"></p>
+<script>
+  function chuyenFsangC(f) {
+    let c = (f -32)/1.8
+    return c
+  }
+  function bangnhiet() {
+    let nhietdoF = document.getElementById("nhietdo")
+    let nhietdoCC = chuyenFsangC(nhietdoF.value)
+    document.getElementById("nhietdoC").innerHTML = "Nhiệt độ theo *C = " + nhietdoCC.toFixed(1)
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tìm giá trị nhỏ nhất của mảng</title>
+</head>
+<body>
+<input type="button" onclick="mangso()" value="Tim MIN">
+<script>
+  function timMin(arrs) {
+    let min, vitri = 0
+    if(arrs.length == 0){
+      return -1
+    }
+    min = arrs[0]
+    for (let i=0; i<arrs.length; i++){
+      if(arrs[i]< min){
+        min = arrs[i]
+        vitri = i
+      }
+    }
+    return vitri
+  }
+  function mangso() {
+    let mang = [2,5,1,12,0,-12]
+    document.write("mangso["+mang+"] <br>")
+    let timmin = timMin(mang)
+    document.write("Phan tu nho nhat trong mang la mangso["+ timmin+"] = "+mang[timmin])
+  }
+</script>
+</body>
+</html>
